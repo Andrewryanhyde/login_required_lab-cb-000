@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     session[:name] = nil
   end
 
-  pivate
+  private
 
   def require_login
     return head(:forbidden) unless session.include? :user_id
