@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  before_action :require_login
 
   def new
   end
@@ -16,12 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:name] = nil
-  end
-
-  private
-
-  def require_login
-    return head(:forbidden) unless session.include? :user_id
   end
 
 end
