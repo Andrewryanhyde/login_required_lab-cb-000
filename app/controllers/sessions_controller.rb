@@ -1,15 +1,20 @@
 class SessionsController < ApplicationController
-  def new 
-  end 
+  def new
+  end
 
-  def create 
+  def create
     session[:name] = params[:name] if params[:name]
 
-    if !current_user.present? 
+    if !current_user.present?
       redirect_to sessions_new_path
-    else 
+    else
       redirect_to '/'
     end
   end
 
-end 
+  def destroy 
+    session[:name] = nil
+  end 
+    
+
+end
